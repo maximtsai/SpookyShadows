@@ -35,6 +35,9 @@ public class MovementScript : MonoBehaviour
     void Update() {
         if (Input.GetKey("up") || Input.GetKey("w"))
         {
+            if (!isPressingUp) {
+                inertiaCounter = inertiaBreakpoint * 0.4f;
+            }
             isPressingUp = true;
         } else {
             isPressingUp = false;
@@ -42,6 +45,9 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKey("down") || Input.GetKey("s"))
         {
+            if (!isPressingDown) {
+                inertiaCounter = inertiaBreakpoint * 0.4f;
+            }
             isPressingDown = true;
         } else {
             isPressingDown = false;
@@ -49,6 +55,9 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKey("left") || Input.GetKey("a"))
         {
+            if (!isPressingLeft) {
+                inertiaCounter = inertiaBreakpoint * 0.4f;
+            }
             isPressingLeft = true;
         } else {
             isPressingLeft = false;
@@ -56,6 +65,9 @@ public class MovementScript : MonoBehaviour
 
         if (Input.GetKey("right") || Input.GetKey("d"))
         {
+            if (!isPressingRight) {
+                inertiaCounter = inertiaBreakpoint * 0.4f;
+            }
             isPressingRight = true;
         } else {
             isPressingRight = false;
@@ -91,14 +103,14 @@ public class MovementScript : MonoBehaviour
         if (isPressingDown || isPressingUp || isPressingLeft || isPressingRight) {
             inertiaCounter += Time.fixedDeltaTime;
         } else if (inertiaCounter > inertiaBreakpoint) {
-            inertiaCounter = inertiaBreakpoint;
+            inertiaCounter = inertiaBreakpoint * 0.75f;
         } else {
             inertiaCounter = Mathf.Max(0, inertiaCounter - Time.fixedDeltaTime);
         }
 
-        float inertiaMult = inertiaCounter > inertiaBreakpoint ? 1 : 0.5f;
+        float inertiaMult = inertiaCounter > inertiaBreakpoint ? 1 : 0.65f;
 
-        float runSpeed = isPressingRun ? 1.6f : 1f;
+        float runSpeed = isPressingRun && inertiaCounter > inertiaBreakpoint ? 1.6f : 1f;
 
         // Rotating a Moving Player
         //PlayerRigid.rotation *= Quaternion.Euler(0, rotInput, 0);
