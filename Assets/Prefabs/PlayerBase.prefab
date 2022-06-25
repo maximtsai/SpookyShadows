@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36d7eb04da13614d94f78a9e7a5c1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1750
+  moveSpeed: 1100
   PlayerRotateBody: {fileID: 6930349530385305292}
   cameraHeight: 10
 --- !u!54 &6930349528916501732
@@ -125,8 +125,8 @@ Rigidbody:
   m_GameObject: {fileID: 6930349528916501742}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 8
-  m_AngularDrag: 9
+  m_Drag: 2.5
+  m_AngularDrag: 8
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
