@@ -24,6 +24,8 @@ public class MovementScript : MonoBehaviour
     private float angleShake = 0;
     private float playerBodyRot = 0;
 
+    private bool canMove = true;
+
     private void Awake()
     {
         PlayerRigid = GetComponent<Rigidbody>();
@@ -87,7 +89,9 @@ public class MovementScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        
+        if (!canMove) {
+            return;
+        }
         Vector3 moveInput = new Vector3(0, 0, 0);
         if (isPressingUp) {
             moveInput += new Vector3(0, 0, 1);

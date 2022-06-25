@@ -5,6 +5,8 @@ using UnityEngine;
 public class PieceOneScript : MonoBehaviour
 {
     private bool isHovered = false;
+    public GameObject fence;
+    public GameObject lightSource;
     void Start()
     {
 
@@ -29,6 +31,6 @@ public class PieceOneScript : MonoBehaviour
     }
 
     void ScriptFunc() {
-
+        Destroy(fence);
     }
 }
