@@ -34,6 +34,20 @@ public class MovementScript : MonoBehaviour
         playerBodyRot = PlayerRotateBody.rotation.y;
     }
 
+    private void Start() 
+    {
+        EventManager.StartListening("showOverlay", disableMovement);
+        EventManager.StartListening("hideOverlay", enableMovement);
+    }
+
+    void disableMovement(string name) {
+        canMove = false;
+    }
+
+    void enableMovement(string name) {
+        canMove = true;
+    }
+
     void Update() {
         if (Input.GetKey("up") || Input.GetKey("w"))
         {

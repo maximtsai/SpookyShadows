@@ -31,6 +31,9 @@ public class PieceOneScript : MonoBehaviour
     }
 
     void ScriptFunc() {
+        EventManager.TriggerEvent("gatheredPiece", "START");
+        EventManager.TriggerEvent("showOverlay", "");
+        EventManager.TriggerEvent("lightsOut", "");
         Destroy(fence);
     }
 }
