@@ -5,6 +5,7 @@ using UnityEngine;
 public class OverlayScript : MonoBehaviour
 {
     // Start is called before the first frame update
+    public GameObject title;
     public GameObject overlay;
     public GameObject portraitA;
     public GameObject portraitB;
@@ -18,6 +19,7 @@ public class OverlayScript : MonoBehaviour
     private float closeDelay = 0;
     private float closeDelayMax = 25f;
     private bool dimLights = false;
+    private bool firstTimeClose = true;
     void Start()
     {
         EventManager.StartListening("showOverlay", handleShowOverlay);
@@ -35,17 +37,17 @@ public class OverlayScript : MonoBehaviour
         } else if (closeDelay > 0) {
             closeDelay -= Time.fixedDeltaTime;
         } 
-        if (dimLights) {
-            globalLight.intensity -= 0.004f * Time.fixedDeltaTime;
-            playerLight.intensity = 2.25f - globalLight.intensity * 4.25f;
-            globalLight.color = new Color(globalLight.intensity * 2f, globalLight.intensity * 2f, globalLight.intensity * 1f + 0.45f, 1f);
+        // if (dimLights) {
+        //     globalLight.intensity -= 0.004f * Time.fixedDeltaTime;
+        //     playerLight.intensity = 2.25f - globalLight.intensity * 4.25f;
+        //     globalLight.color = new Color(globalLight.intensity * 2f, globalLight.intensity * 2f, globalLight.intensity * 1f + 0.45f, 1f);
 
-            if (globalLight.intensity < 0.08f) {
-                playerLight.intensity = 2.25f;
-                globalLight.color = new Color(0.1f, 0.1f, 0.5f, 1f);
-                dimLights = false;
-            }
-        }
+        //     if (globalLight.intensity < 0.08f) {
+        //         playerLight.intensity = 2.25f;
+        //         globalLight.color = new Color(0.1f, 0.1f, 0.5f, 1f);
+        //         dimLights = false;
+        //     }
+        // }
     }
 
     void handleShowOverlay(string name) {
@@ -55,10 +57,35 @@ public class OverlayScript : MonoBehaviour
 
     void handleHideOverlay(string name) {
         overlay.SetActive(false);
+        if (firstTimeClose) {
+            firstTimeClose = false;
+            globalLight.intensity = 3f;
+            EventManager.TriggerEvent("playSound", "Thunder");
+            StartCoroutine(LightningSequence());
+        }
+    }
+
+    IEnumerator LightningSequence()
+    {
+        //Wait for the specified delay time before continuing.
+        yield return new WaitForSeconds(0.1f);
+        globalLight.intensity = 1f;
+        yield return new WaitForSeconds(0.1f);
+        globalLight.intensity = 0.25f;
+        playerLight.intensity = 0.5f;
+        yield return new WaitForSeconds(0.5f);
+        globalLight.intensity = 3f;
+        title.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        globalLight.intensity = 0.1f;
+        playerLight.intensity = 2.75f;
+        //Do the action after the delay time has finished.
+        yield return new WaitForSeconds(3.5f);
+        Destroy(title);
     }
 
     void handleLightsOut(string name) {
-        dimLights = true;
+        // dimLights = true;
         globalLight.intensity = 0.5f;
         //globalLight.intensity = Mathf.Lerp(0.75f, 0.1f, 3f);
         // globalLight.color = new Color(1f, 1f, 1f, 1f);

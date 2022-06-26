@@ -8,10 +8,12 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip epiphany1;
     public AudioClip epiphany2;
     public AudioClip epiphany3;
+    public AudioClip thunder;
     void Start()
     {
         // sourceSfx.Play();
         EventManager.StartListening("gatheredPiece", handleGatheredPiece);
+        EventManager.StartListening("playSound", handlePlaySound);
 
     }
 
@@ -28,6 +30,14 @@ public class PlayerAudio : MonoBehaviour
             sourceSfx.PlayOneShot(epiphany2, 1f);
         } else {
             sourceSfx.PlayOneShot(epiphany3, 1f);
+        }
+    }
+
+    void handlePlaySound(string name) {
+        switch (name) {
+            case "Thunder":
+                sourceSfx.PlayOneShot(thunder, 1f);
+            break;
         }
     }
 }
