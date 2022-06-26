@@ -149,7 +149,7 @@ public class MovementScript : MonoBehaviour
             playerBodyRot -= 360f;
         }
 
-        angleShake = angleShake * 0.995f + Random.Range(-0.05f, 0.05f);
+        angleShake = angleShake * 0.995f + Random.Range(-0.02f, 0.02f);
         angleRotSpd += angleDiff * 1.2f * Time.fixedDeltaTime - angleRotSpd * 0.2f + angleShake;
 
         playerBodyRot = playerBodyRot + angleRotSpd;
