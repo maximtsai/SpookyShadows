@@ -458,6 +458,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1384629323}
+  - {fileID: 1535189673}
   m_Father: {fileID: 6930349528916501738}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -473,6 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250dac81139421f4c9af8207a6798ac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 1535189672}
   overlay: {fileID: 1384629322}
   portraitA: {fileID: 489630607}
   portraitB: {fileID: 2077616631}
@@ -720,6 +722,89 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 5374d8c02f80fed47ad82d4fc96783be, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1535189672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1535189673}
+  - component: {fileID: 1535189676}
+  - component: {fileID: 1535189675}
+  m_Layer: 0
+  m_Name: Title
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1535189673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535189672}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalScale: {x: 3.3, y: 1, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 945554986}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!33 &1535189676
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535189672}
+  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1535189675
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535189672}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ab12c9ebb6936884ea16d3a9e0128167, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1256,10 +1341,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.55
+  m_Radius: 0.82
   m_Height: 2
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
 --- !u!114 &6930349528916501733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1272,7 +1357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f36d7eb04da13614d94f78a9e7a5c1f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1100
+  moveSpeed: 1000
   PlayerRotateBody: {fileID: 6930349530385305292}
   cameraHeight: 10
 --- !u!54 &6930349528916501732
@@ -1284,8 +1369,8 @@ Rigidbody:
   m_GameObject: {fileID: 6930349528916501742}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 2.5
-  m_AngularDrag: 8
+  m_Drag: 3.3
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1403,6 +1488,7 @@ MonoBehaviour:
   epiphany1: {fileID: 8300000, guid: 3347a5de35f890945adc8c63304ea297, type: 3}
   epiphany2: {fileID: 8300000, guid: 2ba372730e465254a9f1d802534ebd9f, type: 3}
   epiphany3: {fileID: 8300000, guid: 5de781b85e58b17448bf7642a5bcdf6c, type: 3}
+  thunder: {fileID: 8300000, guid: a071b34e48b5dd848bc76285a6694ffc, type: 3}
 --- !u!1 &6930349529388934442
 GameObject:
   m_ObjectHideFlags: 0

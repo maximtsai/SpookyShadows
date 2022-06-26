@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &275675492833105932
+--- !u!1001 &6658265372832280790
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: d0f2c8568c30a704e9d3e1875149588d, type: 2}
     - target: {fileID: 4175530371136490362, guid: a8fbe8c0feb7ef2429960ef6f576554d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.37
+      value: 2.38
       objectReference: {fileID: 0}
     - target: {fileID: 4175530371136490362, guid: a8fbe8c0feb7ef2429960ef6f576554d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.64
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4175530371154333385, guid: a8fbe8c0feb7ef2429960ef6f576554d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -93,7 +93,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4175530371160161599, guid: a8fbe8c0feb7ef2429960ef6f576554d, type: 3}
       propertyPath: m_Name
-      value: TreeMed2
+      value: TreeMed2 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8fbe8c0feb7ef2429960ef6f576554d, type: 3}
