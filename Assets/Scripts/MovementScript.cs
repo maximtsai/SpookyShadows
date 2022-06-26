@@ -42,6 +42,7 @@ public class MovementScript : MonoBehaviour
 
     void disableMovement(string name) {
         canMove = false;
+        PlayerRigid.velocity = Vector3.zero;
     }
 
     void enableMovement(string name) {
