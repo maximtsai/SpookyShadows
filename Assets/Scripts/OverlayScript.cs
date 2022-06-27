@@ -7,6 +7,8 @@ public class OverlayScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject title;
     public GameObject overlay;
+    public GameObject compassHolder;
+    public GameObject compass;
     public GameObject portraitA;
     public GameObject portraitB;
     public GameObject portraitC;
@@ -20,6 +22,7 @@ public class OverlayScript : MonoBehaviour
     private float closeDelayMax = 25f;
     private bool dimLights = false;
     private bool firstTimeClose = true;
+    private bool gotCompass = false;
     void Start()
     {
         EventManager.StartListening("showOverlay", handleShowOverlay);
@@ -37,6 +40,10 @@ public class OverlayScript : MonoBehaviour
         } else if (closeDelay > 0) {
             closeDelay -= Time.fixedDeltaTime;
         } 
+
+        if (gotCompass && Input.GetKeyDown("c") || Input.GetKeyDown("m")) {
+            compassHolder.SetActive(!compassHolder.activeSelf);
+        }
         // if (dimLights) {
         //     globalLight.intensity -= 0.004f * Time.fixedDeltaTime;
         //     playerLight.intensity = 2.25f - globalLight.intensity * 4.25f;
@@ -93,6 +100,9 @@ public class OverlayScript : MonoBehaviour
 
     void handleGatheredPiece(string name) {
         switch(name) {
+            case "COMPASS":
+                compass.SetActive(false);
+            break; 
             case "A":
                 portraitA.SetActive(false);
             break;  

@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PieceOneScript : MonoBehaviour
+public class CompassScript : MonoBehaviour
 {
     private bool isHovered = false;
-    public GameObject fence;
     void Start()
     {
 
@@ -24,15 +23,8 @@ public class PieceOneScript : MonoBehaviour
     {
         if (Input.GetKeyDown("e") && isHovered)
         {
-            ScriptFunc();
+            EventManager.TriggerEvent("gatheredPiece", "COMPASS");
             Destroy(gameObject);
         }
-    }
-
-    void ScriptFunc() {
-        EventManager.TriggerEvent("gatheredPiece", "START");
-        EventManager.TriggerEvent("showOverlay", "");
-        EventManager.TriggerEvent("lightsOut", "");
-        Destroy(fence);
     }
 }
