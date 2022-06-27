@@ -9,6 +9,8 @@ public class OverlayScript : MonoBehaviour
     public GameObject overlay;
     public GameObject compassHolder;
     public GameObject compass;
+    public GameObject compassText;
+    public GameObject needle;
     public GameObject portraitA;
     public GameObject portraitB;
     public GameObject portraitC;
@@ -41,7 +43,13 @@ public class OverlayScript : MonoBehaviour
             closeDelay -= Time.fixedDeltaTime;
         } 
 
-        if (gotCompass && Input.GetKeyDown("c") || Input.GetKeyDown("m")) {
+        if (gotCompass && (Input.GetKeyDown("c") || Input.GetKeyDown("m"))) {
+            if (compassHolder.activeSelf) {
+                EventManager.TriggerEvent("resumeMovement", "");
+                compassText.SetActive(false);
+            } else {
+                EventManager.TriggerEvent("pauseMovement", "");
+            }
             compassHolder.SetActive(!compassHolder.activeSelf);
         }
         // if (dimLights) {
@@ -101,7 +109,10 @@ public class OverlayScript : MonoBehaviour
     void handleGatheredPiece(string name) {
         switch(name) {
             case "COMPASS":
-                compass.SetActive(false);
+                EventManager.TriggerEvent("pauseMovement", "");
+                compassHolder.SetActive(true);
+                gotCompass = true;
+                compass.SetActive(true);
             break; 
             case "A":
                 portraitA.SetActive(false);

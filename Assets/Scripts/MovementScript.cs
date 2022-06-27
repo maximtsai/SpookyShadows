@@ -36,6 +36,8 @@ public class MovementScript : MonoBehaviour
 
     private void Start() 
     {
+        EventManager.StartListening("pauseMovement", disableMovement);
+        EventManager.StartListening("resumeMovement", enableMovement);
         EventManager.StartListening("showOverlay", disableMovement);
         EventManager.StartListening("hideOverlay", enableMovement);
     }
