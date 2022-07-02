@@ -29,6 +29,6 @@ public class PieceTwoScript : MonoBehaviour
     }
 
     void ScriptFunc() {
-
+        EventManager.TriggerEvent("gatheredPiece", "A");
     }
 }
