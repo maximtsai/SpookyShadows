@@ -21,8 +21,7 @@ public class OverlayScript : MonoBehaviour
     public Light globalLight;
     public Light playerLight;
     private float closeDelay = 0;
-    private float closeDelayMax = 25f;
-    private bool dimLights = false;
+    private float closeDelayMax = 9f;
     private bool firstTimeClose = true;
     private bool gotCompass = false;
     void Start()
@@ -78,6 +77,7 @@ public class OverlayScript : MonoBehaviour
             EventManager.TriggerEvent("playSound", "Thunder");
             StartCoroutine(LightningSequence());
         }
+        EventManager.TriggerEvent("overlayJustClosed", "");
     }
 
     IEnumerator LightningSequence()
@@ -93,7 +93,7 @@ public class OverlayScript : MonoBehaviour
         title.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         globalLight.intensity = 0.1f;
-        playerLight.intensity = 2.75f;
+        playerLight.intensity = 5f;
         //Do the action after the delay time has finished.
         yield return new WaitForSeconds(3.5f);
         Destroy(title);
@@ -107,6 +107,7 @@ public class OverlayScript : MonoBehaviour
     }
 
     void handleGatheredPiece(string name) {
+        Debug.Log(name);
         switch(name) {
             case "COMPASS":
                 EventManager.TriggerEvent("pauseMovement", "");
@@ -115,25 +116,26 @@ public class OverlayScript : MonoBehaviour
                 compass.SetActive(true);
             break; 
             case "A":
-                portraitA.SetActive(false);
+                Debug.Log("setactive");
+                portraitA.SetActive(true);
             break;  
             case "B":
-                portraitB.SetActive(false);
+                portraitB.SetActive(true);
             break;
             case "C":
-                portraitC.SetActive(false);
+                portraitC.SetActive(true);
             break;
             case "D":
-                portraitD.SetActive(false);
+                portraitD.SetActive(true);
             break;
             case "E":
-                portraitE.SetActive(false);
+                portraitE.SetActive(true);
             break;
             case "F":
-                portraitF.SetActive(false);
+                portraitF.SetActive(true);
             break;
             case "G":
-                portraitG.SetActive(false);
+                portraitG.SetActive(true);
             break;
         }
     }

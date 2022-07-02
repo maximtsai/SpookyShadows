@@ -7,8 +7,6 @@ public class HeadTurnScript : MonoBehaviour
     private Vector2 mousePos;
     private Vector2 mouseUnitDir;
     private float goalAngle = 0;
-    private float currAngle = 0;
-    private float angleRotSpd = 0;
     public Transform bodyTransform;
     private void Awake()
     {

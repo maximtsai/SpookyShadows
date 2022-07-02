@@ -461,11 +461,11 @@ RectTransform:
   m_Father: {fileID: 843289241}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -178.4}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 40}
   m_SizeDelta: {x: 360, y: 50}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &680545571
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1756,7 +1756,7 @@ Rigidbody:
   m_GameObject: {fileID: 6930349528916501742}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 3.2
+  m_Drag: 4.5
   m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1928,13 +1928,13 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
+  m_Intensity: 3
   m_Range: 2.75
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2023,7 +2023,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0
-  m_Range: 75
+  m_Range: 120
   m_SpotAngle: 75
   m_InnerSpotAngle: 7
   m_CookieSize: 10

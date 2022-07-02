@@ -7,6 +7,7 @@ public class CircleRoomScript : MonoBehaviour
     // Start is called before the first frame update
         public bool isPressingDown = false;
         public GameObject portraitPiece;
+        public GameObject blockerWall;
         public GameObject blood1;
         public GameObject blood2;
         public GameObject blood3;
@@ -39,9 +40,12 @@ public class CircleRoomScript : MonoBehaviour
                     collision1Entries = loopCount + 1;
                     if (collision1Entries == 1) {
                     } else if (collision1Entries == 2) {
+                        blood3.SetActive(true);
                         blood4.SetActive(true);
                     } else if (collision1Entries == 3) {
                         bloodF1.SetActive(true);
+                        blood4.SetActive(false);
+                        blood5.SetActive(false);
 
                     }
                 }
@@ -52,10 +56,12 @@ public class CircleRoomScript : MonoBehaviour
                     if (collision2Entries == 1) {
                         blood1.SetActive(true);
                     } else if (collision2Entries == 2) {
-                        blood3.SetActive(true);
+                        blood5.SetActive(true);
                     } else if (collision2Entries == 3) {
                         bloodF2.SetActive(true);
-
+                        bloodF1.SetActive(false);
+                        bloodF3.SetActive(false);
+                        blood1.SetActive(false);
                     }
                 }
             break;
@@ -65,18 +71,19 @@ public class CircleRoomScript : MonoBehaviour
                     if (collision3Entries == 1) {
                         blood2.SetActive(true);
                     } else if (collision3Entries == 2) {
-                        blood5.SetActive(true);
-
+                        bloodF3.SetActive(true);
+                        blood2.SetActive(false);
+                        blood3.SetActive(false);
+                        blockerWall.SetActive(true);
+                        EventManager.TriggerEvent("beginPulse", " ");
                     } else if (collision3Entries == 3) {
                         portraitPiece.SetActive(true);
-                        bloodF3.SetActive(true);
                     }
                 }
             break;
         }
         if (collision1Entries > loopCount && collision2Entries > loopCount && collision3Entries > loopCount) {
             loopCount += 1;
-            Debug.Log(loopCount);
             if (loopCount == 3) {
                 portraitPiece.SetActive(true);
             }

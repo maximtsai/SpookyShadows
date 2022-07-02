@@ -23,7 +23,7 @@ public class MovementScript : MonoBehaviour
     private float angleRotSpd = 0;
     private float angleShake = 0;
     private float playerBodyRot = 0;
-    private float minMoveAmt = 3.5f;
+    private float minMoveAmt = 1f;
     private float minMoveTracker = 0;
 
     private bool canMove = true;
